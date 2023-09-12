@@ -31,6 +31,7 @@ button {
     border-radius: 0.4rem;
     color: white;
 }
+
 table {
     margin: 2.5em auto;
     border-collapse: outset;
@@ -42,6 +43,7 @@ td {
     height: 30px;
     text-align: center;
 }
+
 .tela1 {
     display: flex;
     flex-direction: column;
@@ -60,6 +62,38 @@ td {
     display: none;
     flex-direction: column;
     animation: top 1s;
+    position: relative;
+}
+
+.fimdejogo {
+    display: none;
+    position: absolute;
+    gap: 3rem;
+    padding: 2rem;
+    z-index: 999;
+    width: 25rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border-radius: 10px;
+    align-items: center;
+    animation: slideDown 2s forwards;
+}
+
+.selecao button {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.fimdejogo button {
+    width: 90%;
+    height: 80%;
+}
+
+.restart {
+    background: linear-gradient(180deg, rgb(16, 118, 186) 0%, rgb(28, 208, 240) 100%);
 }
 
 .facil {
@@ -72,6 +106,10 @@ td {
 
 .dificil {
     background: linear-gradient(180deg, rgba(223, 70, 12, 1) 0%, rgba(249, 108, 21, 1) 100%);
+}
+
+.restart:hover {
+    background: linear-gradient(180deg, rgb(6, 85, 99) 0%, rgb(9, 74, 158) 100%);
 }
 
 .facil:hover {
@@ -138,6 +176,54 @@ td {
 @keyframes top {
     from {
         transform: translateY(-50em);
-        opacity: 0;
     }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -200%);
+    }
+}
+
+@media screen and (max-width:600px) {
+    h1 {
+        text-align: center;
+    }
+
+    .tela1 {
+        margin-top: 2rem;
+    }
+
+    .selecao {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .campominado {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
+    }
+
+    .fimdejogo {
+        width: 20rem;
+    }
+
+    .fimdejogo button {
+        width: 100%;
+    }
+
+    table {
+        margin: 0;
+        min-height: 100%;
+        min-width: 100%;
+        overflow-x: auto;
+    }
+
+    td {
+        min-height: 30px;
+        min-width: 30px;
+    }
+
 }
