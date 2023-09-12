@@ -90,7 +90,6 @@ function init() {
     gerarTabela(linhas, colunas);
     gerarBombas();
     gerarNumeros();
-    // mostrarMatriz();
 }
 
 function limparCelulas(l, c) {
@@ -140,7 +139,7 @@ function verificar(event) {
                 cell.style.backgroundColor = "red";
                 tabela.onclick = undefined;
                 tabela.oncontextmenu = undefined;
-                alert("Você perdeu!");
+                mostrarResultado("derrota");
                 break;
             case 0:
                 limparCelulas(linha, coluna);
@@ -159,7 +158,7 @@ function fimDeJogo() {
         mostrarBombas();
         tabela.onclick = undefined;
         tabela.oncontextmenu = undefined;
-        alert("Você venceu!");
+        mostrarResultado("vitoria");
     }
 }
 
@@ -173,17 +172,17 @@ function setDificuldade(nLinhas, nColunas, nBombas) {
 function registerEvents() {
     document.querySelector(".facil").addEventListener("click", function () {
         toggleDivsVisibility();
-        setDificuldade(8, 8, 10);
+        setDificuldade(9, 9, 10);
     });
 
     document.querySelector(".medio").addEventListener("click", function () {
         toggleDivsVisibility();
-        setDificuldade(12, 12, 20);
+        setDificuldade(12, 12, 40);
     });
 
     document.querySelector(".dificil").addEventListener("click", function () {
         toggleDivsVisibility();
-        setDificuldade(15, 28, 66);
+        setDificuldade(16, 30, 99);
     });
 
     init();
@@ -194,5 +193,23 @@ function toggleDivsVisibility() {
     campominado.style.display = "flex";
     tela1.style.display = "none";
 }
+function mostrarResultado(resultado) {
+    var finaldojogo = document.querySelector(".fimdejogo");
+    var mensagem = document.querySelector(".status");
+    var reiniciarbtn = document.querySelector(".restart");
+
+    if (resultado === "vitoria") {
+        mensagem.textContent = "ganhou";
+    } else if (resultado === "derrota") {
+        mensagem.textContent = "perdeu";
+    }
+
+    finaldojogo.style.display = "flex";
+
+    reiniciarbtn.addEventListener("click", function () {
+        location.reload();
+    });
+}
+
 
 onload = registerEvents;
