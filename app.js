@@ -199,7 +199,7 @@ function mostrarResultado(resultado) {
     var reiniciarbtn = document.querySelector(".restart");
 
     if (resultado === "vitoria") {
-        mensagem.textContent = "ganhou";
+        mensagem.textContent = "venceu";
     } else if (resultado === "derrota") {
         mensagem.textContent = "perdeu";
     }
