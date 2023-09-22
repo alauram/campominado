@@ -171,23 +171,23 @@ function setDificuldade(nLinhas, nColunas, nBombas) {
 
 function registerEvents() {
     document.querySelector(".facil").addEventListener("click", function () {
-        toggleDivsVisibility();
+        visibilidade();
         setDificuldade(9, 9, 10);
     });
 
     document.querySelector(".medio").addEventListener("click", function () {
-        toggleDivsVisibility();
+        visibilidade();
         setDificuldade(12, 12, 40);
     });
 
     document.querySelector(".dificil").addEventListener("click", function () {
-        toggleDivsVisibility();
+        visibilidade();
         setDificuldade(16, 30, 99);
     });
 
     init();
 }
-function toggleDivsVisibility() {
+function visibilidade() {
     var campominado = document.querySelector(".campominado");
     var tela1 = document.querySelector(".tela1");
     campominado.style.display = "flex";
